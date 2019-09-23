@@ -34,9 +34,9 @@ for i in range(5000): # training for 5000 epochs
 # VERY IMPORTANT:: The following is to test the accuracy. This is not the correct way, this can be the training accuracy 
 # but it is not how the models are evaluated. We will cover that, but for now you can check your model performance this way.
 
-outputs = model(train_X)
-_, predicted = torch.max(outputs.data, 1)
-y_hat = predicted.detach().numpy()
-print(y_hat.shape)
-train_accuracy  = accuracy_score(y, y_hat)
+outputs = model(train_X) # feed forward
+_, predicted = torch.max(outputs.data, 1) # we get the class of the highest probability 
+y_hat = predicted.detach().numpy() # return to numpy array
+
+train_accuracy  = accuracy_score(y, y_hat) # the accuracy function calculated the number of the correct predicitions
 print(train_accuracy)
